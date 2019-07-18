@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const User = require('./user');
 const Schema = mongoose.Schema;
 
-const optionSchema = Schema({
+const optionSchema = new Schema({
 	option:String,
 	votes:{type:Number,default:0}
 	});
 
-const pollSchema = Schema({
+const pollSchema = new Schema({
 	user:{
 		type:Schema.Types.ObjectId,
 		ref:'User'
@@ -36,4 +36,4 @@ const pollSchema = Schema({
 				}
 		});
 		
-		mongoose.exports = mongoose.model('Poll',pollSchema);
+module.exports = mongoose.model('Poll',pollSchema);
